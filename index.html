@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benimle Çıkar Mısın?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button {
+            padding: 20px 40px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .green-button {
+            background-color: green;
+            color: white;
+        }
+
+        .red-button {
+            background-color: red;
+            color: white;
+        }
+
+        .green-button:hover {
+            background-color: #4CAF50;
+        }
+
+        .red-button:hover {
+            background-color: #D32F2F;
+        }
+    </style>
+</head>
+<body>
+    <h1>Benimle çıkar mısın?</h1>
+    <div class="buttons-container">
+        <button class="button green-button" id="yesButton">EVET</button>
+        <button class="button red-button" id="noButton">HAYIR</button>
+    </div>
+
+    <script>
+        let yesButton = document.getElementById('yesButton');
+        let noButton = document.getElementById('noButton');
+        let clickCount = 0;
+
+        noButton.addEventListener('click', function() {
+            clickCount++;
+            // Increase the size of the green button
+            yesButton.style.transform = `scale(${1 + clickCount * 0.1})`;
+        });
+
+        yesButton.addEventListener('click', function() {
+            // Redirect to new page with the message
+            window.location.href = 'thankyou.html';
+        });
+    </script>
+</body>
+</html>
